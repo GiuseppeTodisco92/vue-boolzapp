@@ -108,3 +108,7 @@ i{
     align-items: center;
     justify-content: space-between;
  }
+
+ .friends_list li{
+     list-style: none;
+ }
