@@ -1,0 +1,75 @@
+/*--------------
+    COMMONS
+ ---------------*/
+
+ body{
+    background: linear-gradient(to bottom, rgb(0,150,136) 17%,rgb(214,219,216) 17%,rgb(214,219,216) 17%,rgb(214,219,216) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    height: 100vh;
+}
+
+/*--------------
+    CONTAINER
+ ---------------*/
+.row{
+    border: 1px solid black;
+}
+
+ .container{
+     height: 90vh;
+     padding:0;
+ }
+
+ .container_sender{
+     width: 35%;
+ }
+
+ .container_recipient{
+    width: 65%;
+}
+
+.bg_users,.notifications_desktop{
+    min-height: 60px;
+}
+
+.container_chat{
+    height: calc(90vh - 60px);
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+ /*--------------
+    SFONDI
+ ---------------*/
+ .bg_grey{
+    background-color: #eaeaea ;
+ }
+
+ .bg_heavenly{
+    background-color: #8edafc ;
+ }
+
+
+  /*--------------
+    STYLE
+ ---------------*/
+ .input_box{
+     width: 80%;
+ }
+ .input_box,.btn_style{
+     display: flex;
+     border-radius: 3px;
+     font-size: 12px;
+     height: 30px;
+     padding: 10px;
+     border-style: none;
+ }
+ .btn_style{
+     background-color: white;
+     width: 15%;
+     margin-right: 5px;
+     justify-content: center;
+     color: grey;
+ }
