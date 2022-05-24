@@ -26,6 +26,8 @@ i{
 
  .container_sender{
      width: 35%;
+     display: flex;
+     flex-direction: column;
  }
 
  .container_recipient{
@@ -57,6 +59,10 @@ i{
     justify-content: center;
 }
 
+.notifications_desktop{
+    display: flex;
+    align-items: center;
+}
 
  /*--------------
     SFONDI
@@ -109,6 +115,36 @@ i{
     justify-content: space-between;
  }
 
+ .friends_list{
+     overflow-y: auto;
+     flex-grow: 1;
+ }
+ .friends_list ul{
+     margin-left: 0;
+     padding-left: 0;
+ }
  .friends_list li{
      list-style: none;
+     padding: 10px;
+     
+ }
+
+ .friends_list li:hover{
+    background-color: lightgray;
+}
+
+ .img_profile{
+     width: 50px;
+     border-radius: 50px;
+ }
+
+ .bell_style{
+     background-color: white;
+     color: #8edafc;
+     padding: 14px 10px;
+     border-radius: 50px;
+ }
+ .active_notifications{
+     text-decoration: underline;
+     color: grey;
  }

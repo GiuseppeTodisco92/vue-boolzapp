@@ -22,10 +22,12 @@
         <div class="container d-flex my-4 bg-white">
             
             <!-- box profilo mittente-->
-            <div class="container_sender border_">
+            <div class="container_sender ">
                 <!-- box mittente -->
                 <div class="bg_grey d-flex justify-content-between align-items-center bg_users px-3">
-                    <div>profilo utente</div>
+                    <div>
+                        <img class="img_profile" src="img/avatar_io.jpg" alt=""> io
+                    </div>
                     <span>
                         <i class="fa-solid fa-circle-notch"></i>
                         <i class="fa-solid fa-message"></i>
@@ -33,7 +35,14 @@
                     </span>
                 </div>
                 <!-- box notifiche  -->
-                <div class="bg_heavenly notifications_desktop d-flex align-items-center px-3">notifiche</div>
+                <div class="bg_heavenly notifications_desktop px-3">
+                    <i class="fa-solid fa-bell-slash bell_style"></i>
+                    <div class="small px-2">
+                        <span>Ricevi notifiche di nuovi messaggi</span>
+                        <br>
+                        <span class="active_notifications" >Attiva notifiche desktop</span>
+                    </div>
+                </div>
                 <!-- box ricerca  -->
                 <div class="bg_grey search_box d-flex justify-content-center align-items-center py-2">
                     <button class="btn_style"><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -43,7 +52,7 @@
                 <div class="friends_list">
                     <ul>
                         <li v-for="(user,index) in contacts " >
-                            <img :src="img / 'avatar '+ user.avatar" alt="">
+                            <img class="img_profile" :src="'img/avatar'+ user.avatar+'.jpg'" alt="">
                             {{user.name}}
                         </li>
                     </ul>
