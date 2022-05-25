@@ -86,14 +86,18 @@
                 <div class="container_chat">
                     <!-- conversazione -->
                     <div class="chat">
-                        
+
                         <!-- {{contacts[currentIndex].messages[0].message}} -->
+
+                        <!-- ciclo array con currentindex ed accedo all array messages  -->
                         <div v-for="(message,index) in contacts[currentIndex].messages ">
+                            <!-- se lo status è uguale a sent stampo il messsaggio inviato  -->
                             <div v-if="message.status === 'sent'" class="row_sender">
                                 <div  class="message_sender">
                                    {{message.message}}
                                 </div> 
                             </div>
+                            <!-- altrimenti stampo quello ricevuto -->
                             <div v-else class="row_recipient">
                                 <div class="message_recipient">
                                     {{message.message}}
