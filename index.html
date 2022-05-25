@@ -24,7 +24,7 @@
             <!-- box profilo mittente-->
             <div class="container_sender ">
                 <!-- box mittente -->
-                <div class="bg_grey d-flex justify-content-between align-items-center bg_users px-3">
+                <div class="user_box bg_grey d-flex justify-content-between align-items-center bg_users px-3">
                     <div>
                         <img class="img_profile" src="img/avatar_io.jpg" alt=""> io
                     </div>
@@ -51,9 +51,13 @@
                 <!-- box lista amici  -->
                 <div class="friends_list">
                     <ul>
-                        <li v-for="(user,index) in contacts " >
-                            <img class="img_profile" :src="'img/avatar'+ user.avatar+'.jpg'" alt="">
-                            {{user.name}}
+                        <li v-for="(user,index) in contacts " @click="changeAvatar(index)" :class="currentIndex === index ? 'active_friend' : null" >
+                            <img class="img_profile" :src="'img/avatar'+user.avatar+'.jpg'" alt="user.name" >
+                            <div class="name_box">
+                            <h6>{{user.name}}</h6>
+                            <div class="ultimate_message">messaggio inviato</div>
+                            </div>
+                            <div class="time">12:00</div>
                         </li>
                     </ul>
                 </div>
@@ -63,7 +67,14 @@
             <div class="container_recipient border_">
                 <!-- box destinatario -->
                 <div class="bg_grey d-flex justify-content-between align-items-center bg_users px-3">
-                    <div>profilo destinatario</div>
+                    <div class="box_recipient">
+                        <img class="img_profile" :src="'img/avatar'+contacts[currentIndex].avatar+'.jpg'" alt="user.name" >
+                        <div class="name_box">
+                            <h6>{{contacts[currentIndex].name}}</h6>
+                            <div class="ultimate_message">Ultimo accesso oggi alle 12:00</div>
+                        </div>
+                        
+                    </div>
                     <span>
                         <i class="fa-solid fa-magnifying-glass"></i>
                         <i class="fa-solid fa-paperclip"></i>
@@ -74,9 +85,29 @@
                 <!-- box-chat  -->
                 <div class="container_chat">
                     <!-- conversazione -->
-                    <div class="chat">chat</div>
+                    <div class="chat">
+                        
+                        <!-- {{contacts[currentIndex].messages[0].message}} -->
+                        <div v-for="(message,index) in contacts[currentIndex].messages ">
+                            <div v-if="message.status === 'sent'" class="row_sender">
+                                <div  class="message_sender">
+                                   {{message.message}}
+                                </div> 
+                            </div>
+                            <div v-else class="row_recipient">
+                                <div class="message_recipient">
+                                    {{message.message}}
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+
+
                     <!-- box invia messaggio  -->
-                    <div class="send_message bg_sand">
+                    <div  class="send_message bg_sand">
                         <div class="emoticon px-2">
                             <i class="fa-solid fa-face-smile"></i>
                         </div>
@@ -87,11 +118,8 @@
                         
                     </div>
                 </div>
-             
             </div>
-        
-        
-        
+    
         </div>
 
 

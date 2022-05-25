@@ -2,6 +2,7 @@ const app = new Vue({
     el: '#app',
 
     data:{
+        currentIndex:0,
         contacts: [
             {
                 name: 'Michele',
@@ -168,7 +169,10 @@ const app = new Vue({
     },
 
     methods: {
-
+        changeAvatar(index){
+            this.currentIndex = index;
+            console.log(this.currentIndex);
+        },
     },
 }
 )

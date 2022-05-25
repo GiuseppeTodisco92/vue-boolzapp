@@ -15,14 +15,37 @@ i{
 /*--------------
     CONTAINER
  ---------------*/
-.row{
-    border: 1px solid black;
-}
 
  .container{
      height: 90vh;
      padding:0;
  }
+
+ .row_sender{
+    display: flex;
+    justify-content: flex-end;
+ }
+
+ .message_sender, .message_recipient{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px;
+    width: 40%;
+    padding: 10px 20px;
+    border-radius: 10px;
+ }
+ .message_sender{
+     margin-right: 50px;
+     background-color: #d5f9ba;
+ }
+
+ .message_recipient{
+     margin-left:50px;
+     background-color: #ffffff;
+
+ }
+
+
 
  .container_sender{
      width: 35%;
@@ -33,6 +56,9 @@ i{
  .container_recipient{
     width: 65%;
 }
+.user_box{
+    border-right: 2px solid lightgray;
+}
 
 .bg_users,.notifications_desktop,.send_message{
     min-height: 60px;
@@ -40,7 +66,6 @@ i{
 
 .container_chat{
     height: calc(90vh - 60px);
-    border: 1px solid black;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -104,7 +129,7 @@ i{
  }
 
  .chat{
-    border: 1px solid black;
+    overflow-y: auto;
     flex-grow: 1;
     background-image: url(../img/mine.jpg);
  }
@@ -126,16 +151,39 @@ i{
  .friends_list li{
      list-style: none;
      padding: 10px;
-     
+    display: flex;
+ }
+ .name_box{
+     padding-left: 10px;
  }
 
+ .time{
+     display: flex;
+     justify-content: flex-end;
+     flex-grow: 1;
+     font-size: small;
+ }
+ .ultimate_message{
+     font-size: small;
+     margin-top: -10px;
+     color: gray;
+ }
  .friends_list li:hover{
+    background-color: lightgray;
+}
+
+.active_friend{
     background-color: lightgray;
 }
 
  .img_profile{
      width: 50px;
      border-radius: 50px;
+     
+ }
+
+ .box_recipient{
+     display: flex;
  }
 
  .bell_style{
@@ -148,3 +196,5 @@ i{
      text-decoration: underline;
      color: grey;
  }
+
+ 
