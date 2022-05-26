@@ -1,8 +1,10 @@
+var DateTime = luxon.DateTime;
 const app = new Vue({
     el: '#app',
 
     data:{
         currentIndex:0,
+        newMessage:'',
         contacts: [
             {
                 name: 'Michele',
@@ -173,6 +175,27 @@ const app = new Vue({
             this.currentIndex = index;
             console.log(this.currentIndex);
         },
+
+        getLastMessageHour(contact){
+            const mess = contact.messages[contact.messages.length - 1];
+            return this.printTime(mess);
+        },
+
+        addMessage(){
+            // prendere la data del pc e stamparla 
+            const now = DateTime.now().toFormat("dd/MM/yyyy HH:mm:ss");
+            if( this.newMessage !== ''){
+                this.contacts[this.currentIndex].messages.push({message : this.newMessage, status : 'sent' , date: now});
+                this.newMessage = ''; 
+                const myTimeout = setTimeout(()=>{
+                    this.contacts[this.currentIndex].messages.push({message : 'ok', status : 'received' , date:now});
+                }, 2000)
+             }
+        },
+
+        printTime(message){
+            return DateTime.fromFormat(message.date,"dd/MM/yyyy HH:mm:ss").toFormat('HH:mm');
+        }
     },
 }
 )

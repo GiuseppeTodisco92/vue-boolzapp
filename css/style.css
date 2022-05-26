@@ -27,12 +27,11 @@ i{
  }
 
  .message_sender, .message_recipient{
-    display: flex;
-    flex-wrap: wrap;
     margin: 10px;
     width: 40%;
-    padding: 10px 20px;
+    padding: 5px 20px;
     border-radius: 10px;
+    line-height: 20px;
  }
  .message_sender{
      margin-right: 50px;
@@ -44,8 +43,6 @@ i{
      background-color: #ffffff;
 
  }
-
-
 
  .container_sender{
      width: 35%;
@@ -162,6 +159,7 @@ i{
      justify-content: flex-end;
      flex-grow: 1;
      font-size: small;
+     text-align: right;
  }
  .ultimate_message{
      font-size: small;
