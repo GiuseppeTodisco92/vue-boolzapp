@@ -50,12 +50,13 @@
                 <!-- box ricerca  -->
                 <div class="bg_grey search_box d-flex justify-content-center align-items-center py-2">
                     <button class="btn_style"><i class="fa-solid fa-magnifying-glass"></i></button>
-                    <input class="input_box" type="text" placeholder="Cerca o inizia una nuova chat">
+                    <!-- input ricerca  -->
+                    <input class="input_box" type="text" placeholder="Cerca o inizia una nuova chat" v-model="filterName" @keyup.enter="searchByName()">
                 </div> 
                 <!-- box lista amici  -->
                 <div class="friends_list">
                     <ul>
-                        <li v-for="(user,index) in contacts " @click="changeAvatar(index)" :class="currentIndex === index ? 'active_friend' : null" >
+                        <li v-for="(user,index) in searchByName " @click="changeAvatar(index)" :class="currentIndex === index ? 'active_friend' : null" >
                             <img class="img_profile" :src="'img/avatar'+user.avatar+'.jpg'" alt="user.name" >
                             <div class="name_box">
                             <h6>{{user.name}}</h6>
@@ -110,7 +111,7 @@
                                 </div>
                             </div>
                         </div> 
-                        
+
                     </div>
 
 

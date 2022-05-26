@@ -5,6 +5,7 @@ const app = new Vue({
     data:{
         currentIndex:0,
         newMessage:'',
+        filterName:'',
         contacts: [
             {
                 name: 'Michele',
@@ -170,6 +171,12 @@ const app = new Vue({
         ]
     },
 
+    computed: {
+        searchByName(){
+          return this.contacts.filter((elm) => elm.name.toLowerCase().includes(this.filterName));
+        }
+    },
+
     methods: {
         changeAvatar(index){
             this.currentIndex = index;
@@ -195,7 +202,7 @@ const app = new Vue({
 
         printTime(message){
             return DateTime.fromFormat(message.date,"dd/MM/yyyy HH:mm:ss").toFormat('HH:mm');
-        }
-    },
+        },
+    }
 }
 )
