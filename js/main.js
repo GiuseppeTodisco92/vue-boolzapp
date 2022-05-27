@@ -178,9 +178,11 @@ const app = new Vue({
     },
 
     methods: {
-        changeAvatar(index){
-            this.currentIndex = index;
-            console.log(this.currentIndex);
+        changeAvatar(user){
+            console.log(user);
+            this.currentIndex = this.contacts.indexOf(user);
+
+            // console.log(this.currentIndex);
         },
 
         getLastMessageHour(contact){
@@ -192,17 +194,23 @@ const app = new Vue({
             // prendere la data del pc e stamparla 
             const now = DateTime.now().toFormat("dd/MM/yyyy HH:mm:ss");
             if( this.newMessage !== ''){
-                this.contacts[this.currentIndex].messages.push({message : this.newMessage, status : 'sent' , date: now});
-                this.newMessage = ''; 
-                const myTimeout = setTimeout(()=>{
-                    this.contacts[this.currentIndex].messages.push({message : 'ok', status : 'received' , date:now});
-                }, 2000)
+                    this.contacts[this.currentIndex].messages.push({message : this.newMessage, status : 'sent' , date: now});
+                    this.newMessage = ''; 
+                    this.cpuMessage(this.currentIndex)
              }
+        },
+
+        // in questo modo al cambio chat il messaggio di risposta rimane nella chat precedente 
+        cpuMessage(index){
+            const now = DateTime.now().toFormat("dd/MM/yyyy HH:mm:ss");
+            setTimeout(()=>{
+                this.contacts[index].messages.push({message : 'ok', status : 'received' , date:now});
+            }, 2000)
         },
 
         printTime(message){
             return DateTime.fromFormat(message.date,"dd/MM/yyyy HH:mm:ss").toFormat('HH:mm');
-        },
+        }
     }
 }
 )

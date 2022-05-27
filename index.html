@@ -56,7 +56,7 @@
                 <!-- box lista amici  -->
                 <div class="friends_list">
                     <ul>
-                        <li v-for="(user,index) in searchByName " @click="changeAvatar(index)" :class="currentIndex === index ? 'active_friend' : null" >
+                        <li  v-for="(user,index) in searchByName " @click="changeAvatar(user)" :class="currentIndex === contacts.indexOf(user) ? 'active_friend' : null" >
                             <img class="img_profile" :src="'img/avatar'+user.avatar+'.jpg'" alt="user.name" >
                             <div class="name_box">
                             <h6>{{user.name}}</h6>
@@ -76,7 +76,7 @@
                         <img class="img_profile" :src="'img/avatar'+contacts[currentIndex].avatar+'.jpg'" alt="user.name" >
                         <div class="name_box">
                             <h6>{{contacts[currentIndex].name}}</h6>
-                            <div class="ultimate_message">Ultimo accesso oggi alle 12:00</div>
+                            <div class="ultimate_message">Ultimo accesso oggi alle </div>
                         </div>
                         
                     </div>
@@ -120,7 +120,8 @@
                         <div class="emoticon px-2">
                             <i class="fa-solid fa-face-smile"></i>
                         </div>
-                        <input class="input_box_message" type="text" placeholder="scrivi un messaggio" @keyup.enter="addMessage()" v-model="newMessage">
+                        <!-- aggiungere required -->
+                        <input class="input_box_message" type="text" placeholder="scrivi un messaggio" @keyup.enter="addMessage()" v-model="newMessage" >
                         <div class="microphone">
                             <i class="fa-solid fa-microphone px-2"></i>
                         </div>
