@@ -173,22 +173,19 @@ const app = new Vue({
 
     computed: {
         searchByName(){
-          return this.contacts.filter((elm) => elm.name.toLowerCase().includes(this.filterName));
+          return this.contacts.filter((elm) => elm.name.toLowerCase().includes(this.filterName.toLowerCase()));
         }
     },
 
     methods: {
         changeAvatar(user){
-            console.log(user);
             this.currentIndex = this.contacts.indexOf(user);
-
-            // console.log(this.currentIndex);
         },
 
         getLastMessageHour(contact){
-            const mess = contact.messages[contact.messages.length - 1];
+            let mess = contact.messages[contact.messages.length - 1];
             return this.printTime(mess);
-        },
+        },        
 
         addMessage(){
             // prendere la data del pc e stamparla 
@@ -198,6 +195,12 @@ const app = new Vue({
                     this.newMessage = ''; 
                     this.cpuMessage(this.currentIndex)
              }
+        },
+
+        scrolChat(){
+            let scrol = document.querySelector(".chat");
+            console.log(scrol);
+            return scrol.scrollTop = scrol.scrollHeight;
         },
 
         // in questo modo al cambio chat il messaggio di risposta rimane nella chat precedente 
@@ -211,6 +214,10 @@ const app = new Vue({
         printTime(message){
             return DateTime.fromFormat(message.date,"dd/MM/yyyy HH:mm:ss").toFormat('HH:mm');
         }
-    }
-}
-)
+    },
+
+    updated(){
+        console.log('update');
+        this.scrolChat();
+    },
+})

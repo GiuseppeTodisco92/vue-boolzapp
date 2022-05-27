@@ -76,7 +76,7 @@
                         <img class="img_profile" :src="'img/avatar'+contacts[currentIndex].avatar+'.jpg'" alt="user.name" >
                         <div class="name_box">
                             <h6>{{contacts[currentIndex].name}}</h6>
-                            <div class="ultimate_message">Ultimo accesso oggi alle </div>
+                            <div class="ultimate_message">Ultimo accesso oggi alle,{{getLastMessageHour(contacts[currentIndex])}} </div>
                         </div>
                         
                     </div>
@@ -99,7 +99,7 @@
                             <!-- se lo status è uguale a sent stampo il messsaggio inviato  -->
                             <div v-if="message.status === 'sent'" class="row_sender">
                                 <div  class="message_sender">
-                                  <p>{{message.message}}</p> 
+                                  <p> {{message.message}}</p> 
                                   <p class="time">{{printTime(message)}}</p>
                                 </div> 
                             </div>
